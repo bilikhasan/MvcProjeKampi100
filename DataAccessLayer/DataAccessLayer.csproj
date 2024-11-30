@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Migrations\202411301532408_mig1.cs" />
     <Compile Include="Migrations\202411301532408_mig1.Designer.cs">
       <DependentUpon>202411301532408_mig1.cs</DependentUpon>
