@@ -9,20 +9,20 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <br />
 
-<div class="container">
-    <table class="table table-bordered">
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Durum</th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <td>ID</td>
-            <td>Ad</td>
-            <td>Durum</td>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryStatus</td>
         </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.CategoryID</td>
-                <td>@item.CategoryName</td>
-                <td>@item.CategoryStatus</td>
-            </tr>
-        }
-    </table>
-</div>
+    }
+</table>
+<br />
+<a href="/Category/AddCategory" class="btn btn-info">Yeni Kategori</a>
