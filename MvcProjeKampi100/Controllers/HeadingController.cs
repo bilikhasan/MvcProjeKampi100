@@ -49,9 +49,24 @@ namespace MvcProjeKampi100.Controllers
         [HttpPost]
         public ActionResult AddHeading(Heading p)
         {
-            p.HeadingDate = DateTime.Parse (DateTime.Now.ToShortDateString());
+            p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             hm.HeadingAdd(p);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> valuecategory = (from x in cm.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }).ToList();
+            ViewBag.vlc = valuecategory;
+
+            var HeadingValues = hm.GetByID(id);
+            return View(HeadingValues);
+        }
+
     }
 }

@@ -1,14 +1,11 @@
 ﻿@using EntityLayer.Concrete
 @model List<Heading>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 @{ string color = "";}
-
-
 
 <!DOCTYPE html>
 <html>
@@ -64,6 +61,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach (var item in Model)
                         {
                             if (item.Category.CategoryName == "Tiyatro")
@@ -78,15 +76,10 @@
                             {
                                 color = "badge badge-info";
                             }
-                            if (item.Category.CategoryName == "Seyahat")
+                            if (item.Category.CategoryName == "Seyahat ve Yemek")
                             {
                                 color = "badge badge-secondary";
                             }
-
-
-
-
-
                             <tr>
                                 <td>
                                     @item.HeadingID
@@ -112,20 +105,20 @@
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingID">
                                         <i class="fas fa-folder">
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
-                                        Edit
+                                        Düzenle
                                     </a>
                                     <a class="btn btn-danger btn-sm" href="#">
                                         <i class="fas fa-trash">
                                         </i>
-                                        Delete
+                                        Sil
                                     </a>
                                 </td>
                             </tr>
@@ -140,3 +133,4 @@
 </body>
 </html>
 
+<a href="/Heading/AddHeading" class="btn btn-primary">Yeni Başlık Girişi</a>
