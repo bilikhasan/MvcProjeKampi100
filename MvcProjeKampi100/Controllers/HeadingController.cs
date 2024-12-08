@@ -67,6 +67,20 @@ namespace MvcProjeKampi100.Controllers
             var HeadingValues = hm.GetByID(id);
             return View(HeadingValues);
         }
+        [HttpPost]
+        public ActionResult EditHeading(Heading p)
+        {
+            hm.HeadingUpdate(p);
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteHeading(int id)
+        {
+            var HeadingValue = hm.GetByID(id);
+            HeadingValue.HeadingStatus = false;
+            hm.HeadingDelete(HeadingValue);
+
+            return RedirectToAction("Index");
+        }
 
     }
 }
