@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,6 +20,15 @@ namespace MvcProjeKampi100.Controllers
         {
             var contactvalues = cm.GetList();
             return View(contactvalues);
+        }
+        public ActionResult GetContactDetails(int id)
+        {
+            var contactvalues = cm.GetByID(id);
+            return View(contactvalues);
+        }
+        public PartialViewResult MessageListMenu()
+        {
+            return PartialView();
         }
     }
 }

@@ -124,7 +124,7 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/Contact/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     İletişim - Mesajlar
@@ -214,3 +214,11 @@ to get the desired effect
 </body>
 </html>
 
+<script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- Page Script -->
+<script>
+    $(function () {
+        //Add text editor
+        $('#compose-textarea').summernote().noConflict;
+    })
+</script>
