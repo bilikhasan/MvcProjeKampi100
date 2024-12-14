@@ -78,7 +78,6 @@ namespace MvcProjeKampi100.Controllers
             var HeadingValue = hm.GetByID(id);
             HeadingValue.HeadingStatus = false;
             hm.HeadingDelete(HeadingValue);
-
             return RedirectToAction("Index");
         }
 
