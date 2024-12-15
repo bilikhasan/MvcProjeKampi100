@@ -24,11 +24,11 @@ namespace MvcProjeKampi100.Controllers
         {
             Context c = new Context();
             var adminuserinfo = c.Admins.FirstOrDefault(x => x.AdminUserName == p.AdminUserName && x.AdminPassword == p.AdminPassword);
-            if(adminuserinfo !=null)
+            if (adminuserinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
                 Session["AdminUserName"] = adminuserinfo.AdminUserName;
-                return RedirectToAction("Index","AdminCategory");
+                return RedirectToAction("Index", "AdminCategory");
 
             }
             else
@@ -57,6 +57,12 @@ namespace MvcProjeKampi100.Controllers
             {
                 return RedirectToAction("WriterLogin");
             }
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
         }
     }
 }
