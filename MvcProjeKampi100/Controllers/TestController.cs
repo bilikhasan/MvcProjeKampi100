@@ -21,5 +21,9 @@ namespace MvcProjeKampi100.Controllers
         {
             return View();
         }
+        public ActionResult SweetAlert()
+        {
+            return View();
+        }
     }
 }
